@@ -1,0 +1,159 @@
+/* Add or modify styles as needed */
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold; 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #af7ac5 30%, #ffafd7 70%);
+    overscroll-behavior: none;
+}
+
+.game-container {
+    text-align: center;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.name-input {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.name-input label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.name-input input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.start-button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.start-button:active {
+    transform: scale(1.02);
+    background-color: #2980b9;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.game-cell {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease-in-out;
+}
+
+.game-cell:hover {
+    background-color:  lightgreen;
+}
+
+.score-card {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: blue;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 2px solid white;
+}
+
+.message {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.reset-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer; 
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+.reset-button:active{
+    transform: scale(1.02); 
+    background-color: darkgreen; 
+}
+
+.winning-message, .draw-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: green;
+    color: white;
+    padding: 20px;
+    font-size: 25px;
+    border-radius: 5px;
+    animation: fadeInAndOut 3s ease-in-out, slideOut 1s ease-in-out 2s;
+}
+
+@keyframes fadeInAndOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    to {
+        transform: translate(-50%, -200%);
+        opacity: 0;
+    }
+}
+
+.draw-message {
+    background-color: red;
+    color: white;
+}
+
+/* for Mobile screens*/
+@media (max-width: 600px) {
+    .game-board {
+        justify-content: center;
+        grid-template-columns: repeat(3, 1fr); /* fractional units for flexible columns, which get an equal share of  available space */
+        grid-gap: 2px; 
+    }
+
+    .game-cell {
+        width: 50px;  
+        height: 50px;   
+    }
+}
